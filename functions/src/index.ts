@@ -4,6 +4,12 @@ import { ping } from "./controllers/ping.controller.js";
 export { ping };
 
 import {
+  generateDummyData,
+  insertOneDummyRecord,
+} from "./controllers/dummy.controller.js";
+export { generateDummyData, insertOneDummyRecord };
+
+import {
   getOccupancyStatus,
   getOccupancyAnalytics,
 } from "./controllers/occupancy.controller.js";

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "video-detection-f3a99"
-  }
+    "default": "video-detection-f3a99",
+    "production": "clear-veld-467107-f0"
+  },
+  "targets": {},
+  "etags": {}
 }
