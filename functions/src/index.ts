@@ -10,6 +10,8 @@ import {
 export { getOccupancyStatus, getOccupancyAnalytics };
 
 // Auto-sync functions (run automatically)
+
+// data
 import {
   syncOccupancyStatus,
   syncOccupancyAnalytics,
