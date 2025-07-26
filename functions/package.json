@@ -19,6 +19,7 @@
   "dependencies": {
     "@google-cloud/bigquery": "^7.0.0",
     "@google-cloud/pubsub": "^4.0.0",
+    "axios": "^1.11.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
@@ -26,6 +27,7 @@
     "express-rate-limit": "^7.5.0",
     "firebase-admin": "^12.6.0",
     "firebase-functions": "^6.0.1",
+    "google-auth-library": "^10.2.0",
     "host-validation": "^2.0.1"
   },
   "devDependencies": {

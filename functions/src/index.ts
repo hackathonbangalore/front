@@ -3,6 +3,9 @@ import "./config/firebase.js";
 import { ping } from "./controllers/ping.controller.js";
 export { ping };
 
+import { myAgent } from "./controllers/agent.controller.js";
+export { myAgent };
+
 import {
   getOccupancyStatus,
   getOccupancyAnalytics,
