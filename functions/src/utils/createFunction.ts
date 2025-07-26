@@ -9,5 +9,5 @@ export const createFunction = (handler: any, method = "get") => {
 
   app[method]("/", handler);
 
-  return onRequest(app);
+  return onRequest({ region: "europe-west1" }, app);
 };
