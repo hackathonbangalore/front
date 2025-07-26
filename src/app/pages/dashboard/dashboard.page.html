@@ -1,0 +1,176 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="dashboard-content">
+  <!-- Stats Grid 2x2 using Ionic Grid -->
+  <ion-grid class="stats-grid">
+    <ion-row>
+      <!-- Total Visitors -->
+      <ion-col size="6">
+        <ion-card color="primary" class="glass-card">
+          <ion-card-content>
+            <ion-item lines="none" class="stat-header">
+              <ion-label>
+                <h3>Total Visitors</h3>
+              </ion-label>
+              <ion-icon name="people" slot="end" color="success"></ion-icon>
+            </ion-item>
+            <ion-text color="light">
+              <h1>{{dashboardData.totalVisitors | number}}</h1>
+              <p>
+                <small>+{{dashboardData.visitorChange}} since morning</small>
+              </p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Active Alerts -->
+      <ion-col size="6">
+        <ion-card color="primary" class="glass-card">
+          <ion-card-content>
+            <ion-item lines="none" class="stat-header">
+              <ion-label>
+                <h3>Active Alerts</h3>
+              </ion-label>
+              <ion-icon name="warning" slot="end" color="warning"></ion-icon>
+            </ion-item>
+            <ion-text color="light">
+              <h1>{{dashboardData.activeAlerts}}</h1>
+              <p><small>{{dashboardData.highPriority}} high priority</small></p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <!-- Peak Capacity -->
+      <ion-col size="6">
+        <ion-card color="primary" class="glass-card">
+          <ion-card-content>
+            <ion-item lines="none" class="stat-header">
+              <ion-label>
+                <h3>Peak Capacity</h3>
+              </ion-label>
+              <ion-icon name="trending-up" slot="end" color="danger"></ion-icon>
+            </ion-item>
+            <ion-text color="light">
+              <h1>{{dashboardData.peakCapacity}}%</h1>
+              <p><small>{{dashboardData.leadingZone}} leading</small></p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Incidents Today -->
+      <ion-col size="6">
+        <ion-card color="primary" class="glass-card">
+          <ion-card-content>
+            <ion-item lines="none" class="stat-header">
+              <ion-label>
+                <h3>Incidents Today</h3>
+              </ion-label>
+              <ion-icon name="clipboard" slot="end" color="medium"></ion-icon>
+            </ion-item>
+            <ion-text color="light">
+              <h1>{{dashboardData.incidentsToday}}</h1>
+              <p><small>{{dashboardData.resolved}} resolved</small></p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Live Video Feeds Section -->
+  <div class="video-section">
+    <!-- Section Header -->
+    <ion-item lines="none" class="section-header">
+      <ion-avatar slot="start" class="video-icon">
+        <ion-icon name="videocam" color="light"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>Live Video Feeds</h2>
+      </ion-label>
+      <ion-chip slot="end" color="primary">
+        <ion-label>{{liveFeeds.length}} ACTIVE</ion-label>
+      </ion-chip>
+    </ion-item>
+
+    <!-- Video Feed Grid 2x2 -->
+    <ion-grid class="video-grid">
+      <ion-row>
+        <!-- CAM-01 MAIN GATE -->
+        <ion-col size="6">
+          <ion-card class="video-card" color="dark">
+            <ion-card-header class="video-header">
+              <ion-item lines="none" color="dark">
+                <ion-label>
+                  <h3 class="feed-id">CAM-01</h3>
+                  <p class="feed-location">MAIN GATE</p>
+                </ion-label>
+                <ion-badge
+                  slot="end"
+                  color="success"
+                  class="status-dot"
+                ></ion-badge>
+              </ion-item>
+            </ion-card-header>
+            <ion-card-content class="video-content">
+              <div class="video-placeholder">
+                <ion-button
+                  fill="solid"
+                  color="danger"
+                  shape="round"
+                  class="record-btn"
+                >
+                  <ion-icon name="radio-button-on"></ion-icon>
+                </ion-button>
+              </div>
+              <ion-text color="success">
+                <h3 class="status-text">LIVE</h3>
+              </ion-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-card class="video-card" color="dark">
+            <ion-card-header class="video-header">
+              <ion-item lines="none" color="dark">
+                <ion-label>
+                  <h3 class="feed-id">DRONE-01</h3>
+                  <p class="feed-location">AERIAL</p>
+                </ion-label>
+                <ion-badge
+                  slot="end"
+                  color="success"
+                  class="status-dot"
+                ></ion-badge>
+              </ion-item>
+            </ion-card-header>
+            <ion-card-content class="video-content">
+              <div class="video-placeholder">
+                <ion-icon
+                  name="airplane"
+                  color="success"
+                  class="drone-icon"
+                ></ion-icon>
+              </div>
+              <ion-text color="success">
+                <h3 class="status-text">PATROL</h3>
+              </ion-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

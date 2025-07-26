@@ -1,0 +1,108 @@
+// Minimal SCSS - using Ionic utilities
+.glass-card {
+  --background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.stat-header {
+  --background: transparent;
+  --color: white;
+}
+
+.video-section {
+  //   margin-top: 20px;
+}
+
+.section-header {
+  --background: transparent;
+  --color: white;
+  margin-bottom: 15px;
+
+  .video-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.video-grid {
+  margin-bottom: 20px;
+}
+
+.video-card {
+  margin: 8px;
+  border-radius: 15px;
+
+  .video-header {
+    padding: 10px;
+
+    .feed-id {
+      color: #00ff41;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .feed-location {
+      color: #00ff41;
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      margin: 0;
+    }
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .video-content {
+    text-align: center;
+
+    .video-placeholder {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .record-btn {
+      width: 50px;
+      height: 50px;
+      --border-radius: 50%;
+
+      ion-icon {
+        font-size: 24px;
+      }
+    }
+
+    .drone-icon {
+      font-size: 40px;
+    }
+
+    .status-text {
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+}
+
+.control-grid {
+  .control-btn {
+    height: 70px;
+    --border-color: rgba(255, 255, 255, 0.3);
+    --color: rgba(255, 255, 255, 0.7);
+
+    ion-icon {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    ion-label {
+      font-size: 12px;
+    }
+  }
+}
