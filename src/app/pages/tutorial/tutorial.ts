@@ -12,7 +12,13 @@ import {
 } from "@ionic/angular/standalone";
 import { Storage } from "@ionic/storage-angular";
 import { addIcons } from "ionicons";
-import { arrowForward, close } from "ionicons/icons";
+import {
+  analytics,
+  arrowForward,
+  chatbubbleEllipses,
+  close,
+  shieldCheckmark,
+} from "ionicons/icons";
 
 @Component({
   selector: "page-tutorial",
@@ -31,19 +37,22 @@ export class TutorialPage {
     addIcons({
       arrowForward,
       close,
+      shieldCheckmark,
+      analytics,
+      chatbubbleEllipses,
     });
   }
 
   startApp() {
     this.router
-      .navigateByUrl("/app/tabs/home", { replaceUrl: true })
+      .navigateByUrl("/app/tabs/dashboard", { replaceUrl: true })
       .then(() => this.storage.set("ion_did_tutorial", true));
   }
 
   ionViewWillEnter() {
     this.storage.get("ion_did_tutorial").then((res) => {
       if (res === true) {
-        this.router.navigateByUrl("/app/tabs/home", { replaceUrl: true });
+        this.router.navigateByUrl("/app/tabs/dashboard", { replaceUrl: true });
       }
     });
 

@@ -14,6 +14,11 @@ import {
   location,
   people,
   analytics,
+  warning,
+  trendingUp,
+  clipboard,
+  closeCircle,
+  chatbubble,
 } from "ionicons/icons";
 
 @Component({
@@ -22,6 +27,16 @@ import {
 })
 export class TabsPage {
   constructor() {
-    addIcons({ calendar, people, location, informationCircle, analytics });
+    addIcons({
+      calendar,
+      people,
+      warning,
+      location,
+      informationCircle,
+      analytics,
+      trendingUp,
+      clipboard,
+      chatbubble,
+    });
   }
 }

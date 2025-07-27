@@ -27,14 +27,17 @@ import {
   ToastController,
 } from "@ionic/angular/standalone";
 import {
+  analytics,
   calendarOutline,
   hammer,
   help,
   informationCircleOutline,
   logIn,
   logOut,
+  map,
   mapOutline,
   moonOutline,
+  people,
   peopleOutline,
   person,
   personAdd,
@@ -75,19 +78,15 @@ export class AppComponent implements OnInit {
   private platform = inject(Platform);
 
   appPages = [
-    // {
-    //   title: "Schedule",
-    //   url: "/app/tabs/schedule",
-    //   icon: "calendar",
-    // },
     {
-      title: "Schedule",
-      url: "/app/tabs/home",
-      icon: "Home",
+      title: "dashboard",
+      url: "/app/tabs/dashboard",
+      icon: "analytics",
     },
+
     {
-      title: "Speakers",
-      url: "/app/tabs/speakers",
+      title: "Guards",
+      url: "/app/tabs/guard-list",
       icon: "people",
     },
     {
@@ -95,11 +94,11 @@ export class AppComponent implements OnInit {
       url: "/app/tabs/map",
       icon: "map",
     },
-    {
-      title: "About",
-      url: "/app/tabs/about",
-      icon: "information-circle",
-    },
+    // {
+    //   title: "About",
+    //   url: "/app/tabs/about",
+    //   icon: "information-circle",
+    // },
   ];
   loggedIn = false;
   dark = false;
@@ -112,17 +111,19 @@ export class AppComponent implements OnInit {
       mapOutline,
       informationCircleOutline,
       person,
+      people,
+      map,
       help,
       logOut,
       logIn,
       personAdd,
       moonOutline,
       hammer,
+      analytics,
     });
   }
 
   async ngOnInit() {
-    console.log("Hi");
     await this.storage.create();
     this.checkLoginStatus();
     this.listenForLoginEvents();
@@ -185,7 +186,7 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.userService.logout().then(() => {
-      return this.router.navigateByUrl("/app/tabs/login");
+      return this.router.navigateByUrl("/login");
     });
   }
 

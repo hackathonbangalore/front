@@ -1,0 +1,144 @@
+<ion-modal [isOpen]="isOpen" (didDismiss)="onCloseChat()">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Security Assistant</ion-title>
+        <ion-buttons slot="end">
+          <ion-button fill="clear" (click)="onCloseChat()">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <!-- Content with Ionic padding -->
+    <ion-content class="ion-padding">
+      <!-- Chat Messages -->
+      <div class="chat-messages">
+        <div
+          class="message ion-margin-bottom"
+          [ngClass]="{
+            'message-bot': message.type === 'bot',
+            'message-user': message.type === 'user'
+          }"
+          *ngFor="let message of messages"
+        >
+          <!-- Bot Avatar -->
+          <ion-avatar
+            size="small"
+            class="message-avatar"
+            *ngIf="message.type === 'bot'"
+          >
+            <ion-icon name="shield-checkmark"></ion-icon>
+          </ion-avatar>
+
+          <!-- Message Content -->
+          <ion-card
+            class="message-card ion-no-margin"
+            [ngClass]="{
+              'bot-card': message.type === 'bot',
+              'user-card': message.type === 'user'
+            }"
+            [color]="message.type === 'user' ? 'primary' : ''"
+          >
+            <ion-card-content class="ion-padding">
+              <ion-text
+                [color]="message.type === 'user' ? 'light' : 'dark'"
+                class="message-text"
+              >
+                <p class="ion-no-margin">{{ message.text }}</p>
+              </ion-text>
+              <ion-note
+                [color]="message.type === 'user' ? 'light' : 'medium'"
+                class="message-time ion-margin-top"
+              >
+                {{ message.timestamp | date : "short" }}
+              </ion-note>
+            </ion-card-content>
+          </ion-card>
+
+          <!-- User Avatar -->
+          <ion-avatar
+            size="small"
+            class="message-avatar"
+            *ngIf="message.type === 'user'"
+          >
+            <ion-icon name="person"></ion-icon>
+          </ion-avatar>
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="message message-bot ion-margin-bottom" *ngIf="isTyping">
+          <ion-avatar size="small" class="message-avatar">
+            <ion-icon name="shield-checkmark"></ion-icon>
+          </ion-avatar>
+          <ion-card class="message-card bot-card ion-no-margin">
+            <ion-card-content class="ion-padding">
+              <div class="typing-indicator">
+                <ion-spinner name="dots" color="primary"></ion-spinner>
+                <ion-text color="medium" class="ion-margin-start">
+                  <small>Assistant is typing...</small>
+                </ion-text>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </ion-content>
+
+    <!-- Footer with Ionic spacing -->
+    <ion-footer>
+      <!-- Quick Actions -->
+      <div class="ion-padding actions">
+        <div class="ion-text-center">
+          <ion-chip
+            color="primary"
+            (click)="sendQuickMessage('Show occupancy status')"
+          >
+            <ion-icon name="people" slot="start"></ion-icon>
+            <ion-label>Occupancy Status</ion-label>
+          </ion-chip>
+
+          <ion-chip
+            color="warning"
+            (click)="sendQuickMessage('Any active alerts?')"
+          >
+            <ion-icon name="warning" slot="start"></ion-icon>
+            <ion-label>Active Alerts</ion-label>
+          </ion-chip>
+
+          <ion-chip
+            color="success"
+            (click)="sendQuickMessage('Security summary')"
+          >
+            <ion-icon name="shield-checkmark" slot="start"></ion-icon>
+            <ion-label>Security Summary</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+
+      <ion-toolbar>
+        <ion-item lines="none" class="input-item">
+          <ion-input
+            placeholder="Ask about security status..."
+            [(ngModel)]="currentMessage"
+            (keydown.enter)="sendMessage()"
+          ></ion-input>
+          <ion-button
+            slot="end"
+            fill="clear"
+            (click)="sendMessage()"
+            [disabled]="!currentMessage?.trim()"
+            class="send-button"
+          >
+            <ion-icon
+              name="paper-plane"
+              slot="icon-only"
+              style="font-size: 20px"
+            ></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-template>
+</ion-modal>

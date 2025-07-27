@@ -86,7 +86,7 @@ export class SessionDetailPage {
   }
 
   ionViewDidEnter() {
-    this.defaultHref = "/app/tabs/home";
+    this.defaultHref = "/app/tabs/dashboard";
   }
 
   sessionClick(item: string) {

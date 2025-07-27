@@ -41,3 +41,6 @@ import {
   getPersonSearchResults,
 } from "./controllers/person.controller.js";
 export { searchPerson, getPersonSearchResults };
+
+import { chatWithAssistant } from "./controllers/chat.controller.js";
+export { chatWithAssistant };

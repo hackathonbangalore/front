@@ -47,7 +47,7 @@ export class LoginPage {
 
     if (form.valid) {
       this.user.login(this.login.username);
-      this.router.navigateByUrl("/app/tabs/home");
+      this.router.navigateByUrl("/app/tabs/dashboard");
     }
   }
 

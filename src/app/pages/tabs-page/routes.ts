@@ -29,6 +29,11 @@ export const TABS_ROUTES: Routes = [
         ],
       },
       {
+        path: "guard-list",
+        loadComponent: () =>
+          import("../guard-list/guard-list.page").then((m) => m.GuardListPage),
+      },
+      {
         path: "speakers",
         children: [
           {

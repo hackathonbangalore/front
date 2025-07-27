@@ -1,108 +1,47 @@
-// Minimal SCSS - using Ionic utilities
-.glass-card {
-  --background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+// Light mode (default)
+ion-card {
+  --background: #ffffff !important;
+  background: white !important;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
 }
 
-.stat-header {
-  --background: transparent;
-  --color: white;
+ion-item ion-label h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
 }
 
-.video-section {
-  //   margin-top: 20px;
+ion-card-content h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 8px 0;
+  line-height: 1.1;
 }
 
-.section-header {
-  --background: transparent;
-  --color: white;
-  margin-bottom: 15px;
-
-  .video-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-  }
+ion-card-content p small {
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 400;
 }
 
-.video-grid {
-  margin-bottom: 20px;
+// Or using Ionic CSS variables
+ion-card {
+  --background: var(--ion-color-light);
+  background: var(--ion-color-light);
 }
 
-.video-card {
-  margin: 8px;
-  border-radius: 15px;
-
-  .video-header {
-    padding: 10px;
-
-    .feed-id {
-      color: #00ff41;
-      font-family: "Courier New", monospace;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .feed-location {
-      color: #00ff41;
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-      margin: 0;
-    }
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  .video-content {
-    text-align: center;
-
-    .video-placeholder {
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-
-    .record-btn {
-      width: 50px;
-      height: 50px;
-      --border-radius: 50%;
-
-      ion-icon {
-        font-size: 24px;
-      }
-    }
-
-    .drone-icon {
-      font-size: 40px;
-    }
-
-    .status-text {
-      font-family: "Courier New", monospace;
-      font-weight: bold;
-      margin: 0;
-    }
-  }
+ion-item ion-label h3 {
+  color: var(--ion-color-medium);
 }
 
-.control-grid {
-  .control-btn {
-    height: 70px;
-    --border-color: rgba(255, 255, 255, 0.3);
-    --color: rgba(255, 255, 255, 0.7);
+ion-card-content h1 {
+  color: var(--ion-text-color);
+}
 
-    ion-icon {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    ion-label {
-      font-size: 12px;
-    }
-  }
+ion-card-content p small {
+  color: var(--ion-color-medium);
 }

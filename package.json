@@ -11,12 +11,13 @@
     "test": "ng test",
     "lint": "ng lint && npm run lint:sass",
     "lint:sass": "stylelint \"src/**/*.scss\"",
-    "serve": "cd functions && npm run build:watch & firebase emulators:start --only functions,pubsub"
+    "serve": "cd functions && npm run build:watch & firebase emulators:start --only functions"
   },
   "private": true,
   "dependencies": {
     "@angular/common": "^19.1.6",
     "@angular/core": "^19.1.6",
+    "@angular/fire": "^20.0.1",
     "@angular/forms": "^19.1.6",
     "@angular/platform-browser": "^19.1.6",
     "@angular/platform-browser-dynamic": "^19.1.6",
